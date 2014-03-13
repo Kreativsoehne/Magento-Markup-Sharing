@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <KuS_MarkupSharing>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </KuS_MarkupSharing>
+  </modules>
+</config>

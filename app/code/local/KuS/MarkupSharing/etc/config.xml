@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <KuS_MarkupSharing>
+            <version>1.0.0</version>
+        </KuS_MarkupSharing>
+    </modules>
+    <global>
+        <helpers>
+            <markupsharing>
+                <class>KuS_MarkupSharing_Helper</class>
+            </markupsharing>
+        </helpers>
+        <blocks>
+            <kus_markupsharing>
+                <class>KuS_MarkupSharing_Block</class>
+            </kus_markupsharing>
+        </blocks>
+    </global>
+</config>
