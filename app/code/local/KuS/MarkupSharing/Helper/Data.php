@@ -28,6 +28,7 @@ class KuS_MarkupSharing_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getExternalMarkup($url)
     {
+        $html = '';
         // if you're using htaccess authorization, uncomment the following line
         // and edit the login credentials.
         //$context = stream_context_create(array('http' => array('header'  => "Authorization: Basic " . base64_encode("user:password"))));
@@ -36,9 +37,16 @@ class KuS_MarkupSharing_Helper_Data extends Mage_Core_Helper_Abstract
         if (strtolower(substr($url, 0, 4)) != 'http')
             $url = $this->getSiteUrl() . $url;
 
+
         // Uncomment this too, if you're using htaccess
         //return @file_get_contents($url, false, $context);
-        return @file_get_contents($url, false);
+        try {
+            $client = new Zend_Http_Client($url);
+            $html = $client->request()->getBody();
+        } catch (Zend_Http_Client_Exception $e) {
+            Mage::log('could not retrieve content from %s', $url);
+        }
+        return $html;
     }
 
     //--------------------------------------------------------------------------
